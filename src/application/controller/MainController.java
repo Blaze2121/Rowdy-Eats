@@ -36,11 +36,7 @@ public class MainController implements EventHandler
 				String ingredients_file = pieces[5];
 				String nutrition_file = pieces[6];
 				Recipe r = new Recipe(title, category, serving_size, prep_time, cook_time);
-				ArrayList<Ingredient> ingredients = Ingredient.load_ingredients(ingredients_file);
-				for(Ingredient i : ingredients)
-				{
-					r.addIngredient(i);
-				}
+				r.addIngredients(Ingredient.load_ingredients(ingredients_file));
 				Nutrition n = Nutrition.load_nutrition_info(nutrition_file);
 				r.setNutrition(n);
 				recipes.add(r);

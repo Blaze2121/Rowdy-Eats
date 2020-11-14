@@ -37,6 +37,14 @@ public class Recipe
 		ingredients.add(i);
 	}
 	
+	public void addIngredients(ArrayList<Ingredient> ingredients)
+	{
+		for(Ingredient i : ingredients)
+		{
+			addIngredient(i);
+		}
+	}
+	
 	public ArrayList<Ingredient> getIngredients()
 	{
 		return this.ingredients;
