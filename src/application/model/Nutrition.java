@@ -10,6 +10,7 @@ public class Nutrition
 	private String total_fat, saturated_fat, cholesterol; 
 	private String sodium, total_carbs, dietary_fiber, sugar_amt, protein_amt;
 	
+	private String recipe_name = "";
 	
 	
 	public Nutrition(String amt_per_serving, String serving_size, String calories, 
@@ -30,9 +31,10 @@ public class Nutrition
 		this.protein_amt = protein_amt;
 	}
 	
-	public static Nutrition load_nutrition_info(String filename) throws IOException
+	public static Nutrition load_nutrition_info(String filename)
 	{
 		Nutrition ret = null;
+		try {
 		BufferedReader file_reader = new BufferedReader(new FileReader(filename));
         String content = file_reader.readLine();
         while (content != null)
@@ -45,6 +47,12 @@ public class Nutrition
             content = file_reader.readLine();
         }
         file_reader.close();
+		}
+		
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 		return ret;
 	}
 	
@@ -113,6 +121,14 @@ public class Nutrition
 	}
 	public void setProtein_amt(String protein_amt) {
 		this.protein_amt = protein_amt;
+	}
+
+	public String getRecipeName() {
+		return recipe_name;
+	}
+
+	public void setRecipeName(String recipe_name) {
+		this.recipe_name = recipe_name;
 	}
 	
 	

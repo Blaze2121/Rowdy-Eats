@@ -24,6 +24,7 @@ public class Recipe
 	public void setNutrition(Nutrition n)
 	{
 		nutrition_info = n;
+		nutrition_info.setRecipeName(title);
 	}
 	
 	public Nutrition getNutrition()
@@ -31,6 +32,15 @@ public class Recipe
 		return nutrition_info;
 	}
 	
+	public String getName()
+	{
+		return this.title;
+	}
+	
+	public void clearIngredients()
+	{
+		ingredients.clear();
+	}
 	
 	public void addIngredient(Ingredient i)
 	{
@@ -50,18 +60,27 @@ public class Recipe
 		return this.ingredients;
 	}
 	
-	public static ArrayList<String> load_recipes(String filename) throws IOException
+	public static ArrayList<String> load_recipes(String filename) 
 	{
-		ArrayList<String> ret = new ArrayList<String>();
-		BufferedReader file_reader = new BufferedReader(new FileReader(filename));
-        String content = file_reader.readLine();
-        while (content != null)
-        {
-        	ret.add(content);
-            content = file_reader.readLine();
-        }
-        file_reader.close();
-        return ret;
+		try {
+			ArrayList<String> ret = new ArrayList<String>();
+			BufferedReader file_reader = new BufferedReader(new FileReader(filename));
+	        String content = file_reader.readLine();
+	        while (content != null)
+	        {
+	        	ret.add(content);
+	            content = file_reader.readLine();
+	        }
+	        file_reader.close();
+	        return ret;
+		}
+		
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return new ArrayList<String>();
 	}
 	
 	public void setServingSize(String size)

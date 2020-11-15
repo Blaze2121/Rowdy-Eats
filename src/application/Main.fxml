@@ -17,6 +17,6 @@
       <Button layoutX="127.0" layoutY="119.0" mnemonicParsing="false" text="Courses" />
       <Button layoutX="313.0" layoutY="119.0" mnemonicParsing="false" text="Categories" />
       <Button layoutX="539.0" layoutY="119.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="139.0" text="Favorites" />
-      <HBox layoutX="127.0" layoutY="211.0" prefHeight="368.0" prefWidth="560.0" />
+      <HBox fx:id="recipe_box" layoutX="127.0" layoutY="211.0" prefHeight="368.0" prefWidth="560.0" />
    </children>
 </AnchorPane>
