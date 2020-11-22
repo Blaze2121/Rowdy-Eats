@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
       <Label layoutX="296.0" layoutY="43.0" text="Rowdy Eats">
          <font>
@@ -17,6 +17,12 @@
       <Button layoutX="127.0" layoutY="119.0" mnemonicParsing="false" text="Courses" />
       <Button layoutX="313.0" layoutY="119.0" mnemonicParsing="false" text="Categories" />
       <Button layoutX="539.0" layoutY="119.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="139.0" text="Favorites" />
-      <HBox fx:id="recipe_box" layoutX="127.0" layoutY="211.0" prefHeight="368.0" prefWidth="560.0" />
+      <FlowPane layoutX="144.0" layoutY="212.0" prefHeight="426.0" prefWidth="467.0">
+         <children>
+            <VBox fx:id="recipe_box" prefHeight="427.0" prefWidth="466.0" />
+         </children>
+      </FlowPane>
+      <Button fx:id="ing_btn" layoutX="307.0" layoutY="707.0" mnemonicParsing="false" onAction="#handle_ingredients_scene" prefHeight="58.0" prefWidth="79.0" text="Ingredients" />
+      <Button fx:id="nut_btn" layoutX="433.0" layoutY="707.0" mnemonicParsing="false" onAction="#handle_nutrition_scene" prefHeight="58.0" prefWidth="106.0" text="Nutrition Info" />
    </children>
 </AnchorPane>

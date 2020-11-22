@@ -36,6 +36,7 @@ public class Nutrition
 		Nutrition ret = null;
 		try {
 		BufferedReader file_reader = new BufferedReader(new FileReader(filename));
+		System.out.println("Using the filepath " + filename + " for nutrition");
         String content = file_reader.readLine();
         while (content != null)
         {
@@ -43,7 +44,7 @@ public class Nutrition
         	String[] p = content.split(",");
         	ret = new Nutrition(p[0], p[1], p[2], p[3],
         						p[4], p[5], p[6], p[7],
-        						p[8], p[9], p[11]);
+        						p[8], p[9], p[10]);
             content = file_reader.readLine();
         }
         file_reader.close();

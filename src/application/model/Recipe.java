@@ -62,6 +62,7 @@ public class Recipe
 	
 	public static ArrayList<String> load_recipes(String filename) 
 	{
+		System.out.println("Loading recipes...");
 		try {
 			ArrayList<String> ret = new ArrayList<String>();
 			BufferedReader file_reader = new BufferedReader(new FileReader(filename));
@@ -79,6 +80,8 @@ public class Recipe
 		{
 			e.printStackTrace();
 		}
+		
+		System.out.println("Finished loading.");
 		
 		return new ArrayList<String>();
 	}
