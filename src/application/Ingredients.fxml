@@ -5,7 +5,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.IngredientsController">
    <children>
       <Button fx:id="back_btn" layoutX="488.0" layoutY="41.0" mnemonicParsing="false" onAction="#handle" prefHeight="41.0" prefWidth="75.0" text="Back">
@@ -18,7 +17,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="recipe_lb" layoutX="223.0" layoutY="41.0" prefHeight="51.0" prefWidth="194.0" text="&lt;recipe&gt;">
+      <Label fx:id="recipe_lb" layoutX="223.0" layoutY="41.0" prefHeight="51.0" prefWidth="237.0" text="&lt;recipe&gt;">
          <font>
             <Font size="25.0" />
          </font>
