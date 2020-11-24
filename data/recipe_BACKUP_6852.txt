@@ -1,4 +1,5 @@
-Spaghetti,Main Dish,1 plate,20,90,spaghetti_ingredients.txt,spaghetti_nutrition.txt
+<<<<<<< HEAD
+Spahgetti,Main Dish,1 plate,20,90,spahgetti_ingredients.txt,spahgetti_nutrition.txt
 Hot Dog,Main Dish,1 dog,3,5,hot_dog_ingredients.txt,hot_dog_nutrition.txt
 Chicken Fried Rice,Main Dish,1 plate,10,40,chicken_fried_rice_ingredients.txt,chicken_fried_rice_nutrition.txt
 Chicken Enchiladas,Main Dish,1 plate,30,45,chicken_enchilada_ingredients.txt,chicken_fried_rice_nutrition.txt
@@ -6,3 +7,6 @@ Hamburger,Main Dish,1 plate,10,8,hamburger_ingredients.txt,hamburger_nutrition.t
 Salad,Side Dish,1 Bowl,10,0,salad_ingredients.txt,salad_nutrition.txt
 Corn On The Cob,Side Dish,1 Cob,5,10,corn_on_the_cob_ingredients.txt,corn_on_the_cob_nutrition.txt
 Green Beans,1 Cup,Side Dish,1,3,green_beans_ingredients.txt,green_beans_nutrition.txt
+=======
+Spaghetti,Main Dish,1 plate,20,90,spaghetti_ingredients.txt,spaghetti_nutrition.txt
+>>>>>>> 93c2c38eaa7dabd2fa5fa2d9291635b3cd6d7e4e

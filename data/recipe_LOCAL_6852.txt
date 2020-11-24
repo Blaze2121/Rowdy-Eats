@@ -1,4 +1,4 @@
-Spaghetti,Main Dish,1 plate,20,90,spaghetti_ingredients.txt,spaghetti_nutrition.txt
+Spahgetti,Main Dish,1 plate,20,90,spahgetti_ingredients.txt,spahgetti_nutrition.txt
 Hot Dog,Main Dish,1 dog,3,5,hot_dog_ingredients.txt,hot_dog_nutrition.txt
 Chicken Fried Rice,Main Dish,1 plate,10,40,chicken_fried_rice_ingredients.txt,chicken_fried_rice_nutrition.txt
 Chicken Enchiladas,Main Dish,1 plate,30,45,chicken_enchilada_ingredients.txt,chicken_fried_rice_nutrition.txt
