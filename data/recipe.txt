@@ -1,1 +1,1 @@
-Spahgetti,Main Dish,1 plate,20,90,spaghetti_ingredients.txt,spaghetti_nutrition.txt
+Spaghetti,Main Dish,1 plate,20,90,spaghetti_ingredients.txt,spaghetti_nutrition.txt
