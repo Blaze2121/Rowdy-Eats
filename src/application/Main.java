@@ -20,7 +20,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			MainController con = (MainController) loader.getController();
+			//MainController con = (MainController) loader.getController();
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
