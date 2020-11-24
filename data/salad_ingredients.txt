@@ -1,0 +1,6 @@
+Lettcue,1 Head
+Tomato,1 Tomato
+Hard Boiled Egg,1 Egg
+Onion,1 Onion
+Ham,1 Cup
+Cheese,0.5 Cup

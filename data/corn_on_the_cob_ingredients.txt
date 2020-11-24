@@ -1,0 +1,4 @@
+Corn,1 Ear of Corn
+Butter, 1 Stick
+Salt,1 Pinch
+Pepper,1 Pinch

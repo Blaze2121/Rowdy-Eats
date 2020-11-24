@@ -1,0 +1,6 @@
+Chicken,1 Package
+Rice,1 Package
+Soy Sauce,1 tbs
+Egg,1 Egg
+Peas,2 Cup
+Carrots,2 Cup
