@@ -1,8 +1,5 @@
 package application.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import application.model.Ingredient;
 import application.model.Recipe;
 import javafx.event.Event;
@@ -17,23 +14,26 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class IngredientsController implements EventHandler
 {
 	@FXML
 	private VBox box;
-	
+
 	@FXML
 	private Label recipe_lb;
-	
+
 	@FXML
 	private Button back_btn;
-	
+
 	public void setIngredients(Recipe r)
 	{
 		initControl();
 		recipe_lb.setText(r.getName());
 		ArrayList<Ingredient> ingredients = r.getIngredients();
-		
+
 		for(Ingredient i : ingredients)
 		{
 			Label l = new Label();
@@ -41,15 +41,15 @@ public class IngredientsController implements EventHandler
 			box.getChildren().add(l);
 		}
 	}
-	
+
 	private void initControl()
 	{
 		box.getChildren().clear();
 		recipe_lb.setText("");
 	}
-	
-	
-	
+
+
+	/*Switches back to Main.fxml*/
 	@Override
 	public void handle(Event event)
 	{
@@ -57,7 +57,7 @@ public class IngredientsController implements EventHandler
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage)node.getScene().getWindow();
 			stage.close();
-			
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Main.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
@@ -65,7 +65,7 @@ public class IngredientsController implements EventHandler
 			stage.setScene(scene);
 			stage.show();
 		}
-		
+
 		catch(IOException e)
 		{
 			System.out.println("Failed to switch scenes.");

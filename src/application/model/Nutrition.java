@@ -7,14 +7,14 @@ import java.io.IOException;
 public class Nutrition
 {
 	private String amt_per_serving, serving_size, calories;
-	private String total_fat, saturated_fat, cholesterol; 
+	private String total_fat, saturated_fat, cholesterol;
 	private String sodium, total_carbs, dietary_fiber, sugar_amt, protein_amt;
-	
+
 	private String recipe_name = "";
-	
-	
-	public Nutrition(String amt_per_serving, String serving_size, String calories, 
-					String total_fat, String saturated_fat, String cholesterol, 
+
+
+	public Nutrition(String amt_per_serving, String serving_size, String calories,
+					String total_fat, String saturated_fat, String cholesterol,
 					String sodium, String total_carbs, String dietary_fiber,
 					String sugar_amt, String protein_amt)
 	{
@@ -30,7 +30,7 @@ public class Nutrition
 		this.sugar_amt = sugar_amt;
 		this.protein_amt = protein_amt;
 	}
-	
+
 	public static Nutrition load_nutrition_info(String filename)
 	{
 		Nutrition ret = null;
@@ -49,14 +49,14 @@ public class Nutrition
         }
         file_reader.close();
 		}
-		
+
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
 		return ret;
 	}
-	
+
 	public String getAmt_per_serving() {
 		return amt_per_serving;
 	}
@@ -131,7 +131,7 @@ public class Nutrition
 	public void setRecipeName(String recipe_name) {
 		this.recipe_name = recipe_name;
 	}
-	
-	
-	
+
+
+
 }

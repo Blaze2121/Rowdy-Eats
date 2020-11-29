@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NutritionController">
+   <children>
+      <Label layoutX="47.0" layoutY="14.0" prefHeight="43.0" prefWidth="151.0" text="Nutrition for:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="72.0" prefHeight="27.0" prefWidth="135.0" text="Amount per serving">
+         <font> 
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="107.0" prefHeight="21.0" prefWidth="109.0" text="Serving size" />
+      <Label layoutX="37.0" layoutY="128.0" prefHeight="21.0" prefWidth="109.0" text="Calories" />
+      <Label layoutX="37.0" layoutY="155.0" text="Total fat" />
+      <Label layoutX="37.0" layoutY="180.0" text="Saturated fat" />
+      <Label layoutX="37.0" layoutY="200.0" prefHeight="27.0" prefWidth="64.0" text="Cholesterol" />
+      <Label layoutX="37.0" layoutY="234.0" prefHeight="14.0" prefWidth="55.0" text="Sodium" />
+      <Label layoutX="37.0" layoutY="258.0" text="Total Carbohydrates" />
+      <Label layoutX="37.0" layoutY="285.0" text="Dietary Fiber" />
+      <Label layoutX="37.0" layoutY="306.0" text="Sugars" />
+      <Label layoutX="37.0" layoutY="334.0" text="Protein" />
+      <Label fx:id="amt_lb" layoutX="265.0" layoutY="79.0" prefHeight="17.0" prefWidth="86.0" text="&lt;amt&gt;" />
+      <Label fx:id="serv_lb" layoutX="265.0" layoutY="111.0" prefHeight="17.0" prefWidth="86.0" text="&lt;serving_size&gt;" />
+      <Label fx:id="cal_lb" layoutX="265.0" layoutY="132.0" prefHeight="17.0" prefWidth="82.0" text="&lt;calories&gt;" />
+      <Label fx:id="tf_lb" layoutX="263.0" layoutY="155.0" prefHeight="17.0" prefWidth="86.0" text="&lt;total_fat&gt;" />
+      <Label fx:id="sf_lb" layoutX="263.0" layoutY="180.0" text="&lt;saturated_fat&gt;" />
+      <Label fx:id="ch_lb" layoutX="263.0" layoutY="207.0" text="&lt;cholesterol&gt;" />
+      <Label fx:id="sod_lb" layoutX="260.0" layoutY="234.0" prefHeight="17.0" prefWidth="75.0" text="&lt;sodium&gt;" />
+      <Label fx:id="tc_lb" layoutX="260.0" layoutY="258.0" prefHeight="17.0" prefWidth="82.0" text="&lt;total_carbs&gt;" />
+      <Label fx:id="df_lb" layoutX="257.0" layoutY="285.0" prefHeight="17.0" prefWidth="86.0" text="&lt;dietary_fiber&gt;" />
+      <Label fx:id="sug_lb" layoutX="257.0" layoutY="306.0" prefHeight="17.0" prefWidth="75.0" text="&lt;sugars&gt;" />
+      <Label fx:id="pro_lb" layoutX="251.0" layoutY="334.0" prefHeight="17.0" prefWidth="86.0" text="&lt;protein&gt;" />
+      <Button fx:id="back_btn" layoutX="483.0" layoutY="51.0" mnemonicParsing="false" onAction="#go_back" prefHeight="43.0" prefWidth="75.0" text="Back" />
+      <Label fx:id="recipe_lb" layoutX="222.0" layoutY="14.0" prefHeight="53.0" prefWidth="194.0" text="&lt;recipe&gt;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
+

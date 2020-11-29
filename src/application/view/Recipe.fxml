@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RecipeController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="716.0">
+         <children>
+            <Button fx:id="backButton" layoutX="610.0" layoutY="48.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="31.0" prefWidth="69.0" text="Back" />
+            <Label layoutX="23.0" layoutY="51.0" prefHeight="43.0" prefWidth="187.0" text="Recipe Name: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="98.0" prefHeight="27.0" prefWidth="187.0" text="Enter amount per serving:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="128.0" prefHeight="27.0" prefWidth="109.0" text="Enter Serving size:" />
+            <Label layoutX="23.0" layoutY="160.0" prefHeight="27.0" prefWidth="109.0" text="Enter Calories:" />
+            <Label layoutX="23.0" layoutY="200.0" prefHeight="27.0" prefWidth="109.0" text="Enter Total fat:" />
+            <Label layoutX="23.0" layoutY="265.0" prefHeight="27.0" prefWidth="109.0" text="Enter Cholesterol:" />
+            <Label layoutX="23.0" layoutY="296.0" prefHeight="27.0" prefWidth="109.0" text="Enter Sodium:" />
+            <Label layoutX="23.0" layoutY="334.0" prefHeight="27.0" prefWidth="157.0" text="Enter Total Carbohydrates:" />
+            <Label layoutX="24.0" layoutY="367.0" prefHeight="27.0" prefWidth="128.0" text="Enter Dietary Fiber:" />
+            <Label layoutX="24.0" layoutY="404.0" prefHeight="27.0" prefWidth="128.0" text="Enter Sugars:" />
+            <Label layoutX="24.0" layoutY="444.0" prefHeight="27.0" prefWidth="128.0" text="Enter Protein quantity: " />
+            <Label layoutX="23.0" layoutY="233.0" prefHeight="27.0" prefWidth="109.0" text="Enter Saturated fat:" />
+            <TextField fx:id="recipeAmount" layoutX="210.0" layoutY="99.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeSize" layoutX="210.0" layoutY="130.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeCal" layoutX="210.0" layoutY="161.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeTotFat" layoutX="210.0" layoutY="201.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeSFat" layoutX="210.0" layoutY="234.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeCh" layoutX="210.0" layoutY="266.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeSodium" layoutX="210.0" layoutY="297.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeCarb" layoutX="210.0" layoutY="335.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeDFiber" layoutX="210.0" layoutY="368.0" prefHeight="17.0" prefWidth="109.0" />
+            <TextField fx:id="recipeSugar" layoutX="210.0" layoutY="405.0" prefHeight="25.0" prefWidth="109.0" />
+            <TextField fx:id="recipeProtein" layoutX="210.0" layoutY="445.0" prefHeight="25.0" prefWidth="109.0" />
+            <Button fx:id="submitButton" layoutX="610.0" layoutY="539.0" mnemonicParsing="false" onAction="#pressSubmit" prefHeight="31.0" prefWidth="69.0" text="Submit" />
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="300.0" text="Enter information then press the submit button" />
+            <Label fx:id="titleLabel" layoutX="210.0" layoutY="51.0" prefHeight="43.0" prefWidth="136.0" text="&lt;RecipeName&gt;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

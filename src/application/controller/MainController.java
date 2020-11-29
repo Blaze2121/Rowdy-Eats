@@ -27,45 +27,46 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class MainController implements Initializable 
+public class MainController implements Initializable
 {
-	
+
 	@FXML
 	private VBox recipe_box;
-	
+
 	@FXML
 	private Button nut_btn;
-	
+
 	@FXML
 	private Button ing_btn;
-	
+
 	private Recipe selected_recipe;
-	private ArrayList<Recipe> recipes;
+	private static ArrayList<Recipe> recipes;
 	public MainController()
 	{
 
-		
+
 	}
-	
-	
+
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		recipes = new ArrayList<Recipe>();
 		selected_recipe = null;
-		
+
 		initControls();
 	}
-	
+
 
 	private void initControls()
 	{
-		
+
 		ArrayList<String> foods = Recipe.load_recipes("data/recipe.txt");
 		for(String food : foods)
 		{
 			//title, category, serving_size, prep_time, cook_time, ingredients_file_name.txt
 			String[] pieces = food.split(",");
-			
+
 			String title = pieces[0];
 			String category = pieces[1];
 			String serving_size = pieces[2];
@@ -79,7 +80,7 @@ public class MainController implements Initializable
 			r.setNutrition(n);
 			recipes.add(r);
 		}
-		
+
 		for(Recipe r : recipes)
 		{
 			Label r_lb = new Label();
@@ -98,7 +99,7 @@ public class MainController implements Initializable
 			recipe_box.getChildren().add(r_lb);
 		}
 	}
-	
+
 	public void handle_ingredients_scene(Event evt)
 	{
 		if(selected_recipe != null)
@@ -107,7 +108,7 @@ public class MainController implements Initializable
 				Node node = (Node) evt.getSource();
 				Stage stage = (Stage)node.getScene().getWindow();
 				stage.close();
-				
+
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Ingredients.fxml"));
 				AnchorPane root = (AnchorPane)loader.load();
 				IngredientsController con = loader.getController();
@@ -117,7 +118,7 @@ public class MainController implements Initializable
 				stage.setScene(scene);
 				stage.show();
 			}
-			
+
 			catch(IOException e)
 			{
 				System.out.println("Failed to switch scenes.");
@@ -125,7 +126,7 @@ public class MainController implements Initializable
 			}
 		}
 	}
-	
+
 	public void handle_nutrition_scene(Event event)
 	{
 		if(selected_recipe != null)
@@ -134,7 +135,7 @@ public class MainController implements Initializable
 				Node node = (Node) event.getSource();
 				Stage stage = (Stage)node.getScene().getWindow();
 				stage.close();
-				
+
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Nutrition.fxml"));
 				AnchorPane root = (AnchorPane) loader.load();
 				NutritionController con = loader.getController();
@@ -144,7 +145,7 @@ public class MainController implements Initializable
 				stage.setScene(scene);
 				stage.show();
 			}
-			
+
 			catch(IOException e)
 			{
 				System.out.println("Failed to switch scenes.");
@@ -152,5 +153,19 @@ public class MainController implements Initializable
 			}
 		}
 	}
+
+
+
+	public static ArrayList<Recipe> getRecipes() {
+		return recipes;
+	}
+
+
+
+	public static void setRecipes(ArrayList<Recipe> recipes) {
+		MainController.recipes = recipes;
+	}
+
+
 
 }
