@@ -95,8 +95,12 @@ public class RecipeController implements Initializable {
 		}
 	}
 
+	public void transferRecipe( Recipe recipe) {
+		this.recipe = recipe;
+	}
+
 	/*SAVES THE INPUT FROM INGREDIENTS AND RECIPE*/
-	public void saveRecipe(Recipe recipe) throws IOException {			//IS THIS A FXML??
+	public void saveRecipe() throws IOException {			//IS THIS A FXML??
 		String outputAmount = recipeAmount.getText();
 		String outputSize = recipeSize.getText();
 		String outputCalories = recipeCal.getText();
@@ -153,7 +157,7 @@ public class RecipeController implements Initializable {
 		totalRecipe = totalRecipe + recipe.getTitle() + "_nutrition.txt";
 
 		try {
-			FileWriter recipeFile = new FileWriter("recipe.txt", true);
+			FileWriter recipeFile = new FileWriter("data/recipe.txt", true);
 			PrintWriter outFile = new PrintWriter(recipeFile);
 
 			outFile.print(totalRecipe);
@@ -180,7 +184,7 @@ public class RecipeController implements Initializable {
 
 
 	/***Returns the User to the addIngredients page***/
-	@FXML
+	//@FXML
 	public void pressBack(ActionEvent event) {
 
 
@@ -189,10 +193,10 @@ public class RecipeController implements Initializable {
 			Stage stage = (Stage)node.getScene().getWindow();
 			stage.close();
 
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../addIngredients.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddIngredients.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
-			scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 		}
@@ -214,10 +218,10 @@ public class RecipeController implements Initializable {
 			Stage stage = (Stage)node.getScene().getWindow();
 			stage.close();
 
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Main.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Main.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
-			scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 		}

@@ -12,13 +12,18 @@ public class Recipe
 	private Nutrition nutrition_info;
 	public Recipe(String title, String category, String serving_size, String prep_time, String cook_time)
 	{
-		nutrition_info = null;
+		nutrition_info = new Nutrition();
 		ingredients = new ArrayList<Ingredient>();
 		this.title = title;
 		this.category = category;
 		this.serving_size = serving_size;
 		this.prep_time = prep_time;
 		this.cook_time = cook_time;
+	}
+
+	public Recipe() {
+		this.nutrition_info = new Nutrition();
+		ingredients = new ArrayList<Ingredient>();
 	}
 
 	public String getTitle() {

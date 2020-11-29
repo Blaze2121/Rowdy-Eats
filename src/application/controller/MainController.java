@@ -10,6 +10,7 @@ import application.model.Nutrition;
 import application.model.Recipe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -38,6 +39,9 @@ public class MainController implements Initializable
 
 	@FXML
 	private Button ing_btn;
+
+	@FXML
+	private Button newRecipeButton;
 
 	private Recipe selected_recipe;
 	private static ArrayList<Recipe> recipes;
@@ -109,12 +113,12 @@ public class MainController implements Initializable
 				Stage stage = (Stage)node.getScene().getWindow();
 				stage.close();
 
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Ingredients.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Ingredients.fxml"));
 				AnchorPane root = (AnchorPane)loader.load();
 				IngredientsController con = loader.getController();
 				con.setIngredients(selected_recipe);
 				Scene scene = new Scene(root);
-				scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+			//	scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 				stage.setScene(scene);
 				stage.show();
 			}
@@ -136,12 +140,12 @@ public class MainController implements Initializable
 				Stage stage = (Stage)node.getScene().getWindow();
 				stage.close();
 
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Nutrition.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Nutrition.fxml"));
 				AnchorPane root = (AnchorPane) loader.load();
 				NutritionController con = loader.getController();
 				con.setNutrition(selected_recipe);
 				Scene scene = new Scene(root);
-				scene.getStylesheets().add(getClass().getResource("../application.css").toExternalForm());
+				//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 				stage.setScene(scene);
 				stage.show();
 			}
@@ -152,6 +156,26 @@ public class MainController implements Initializable
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void pressNewRecipe(ActionEvent event) {
+		try {
+		Node node = (Node) event.getSource();
+		Stage stage = (Stage)node.getScene().getWindow();
+		stage.close();
+
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddIngredients.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root, 800,800);
+		scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
+		}
+		catch (IOException e ) {
+			System.out.print("Error in pressNBewRecipe=\n");
+			e.printStackTrace();
+		}
+
 	}
 
 

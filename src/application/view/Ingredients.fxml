@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,7 +7,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.IngredientsController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa21f" height="600.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Button fx:id="back_btn" layoutX="488.0" layoutY="41.0" mnemonicParsing="false" onAction="#handle" prefHeight="41.0" prefWidth="75.0" text="Back">
          <font>
             <Font size="21.0" />

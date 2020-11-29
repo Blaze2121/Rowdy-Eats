@@ -31,6 +31,11 @@ public class Nutrition
 		this.protein_amt = protein_amt;
 	}
 
+	public Nutrition() {
+
+	}
+
+
 	public static Nutrition load_nutrition_info(String filename)
 	{
 		Nutrition ret = null;
