@@ -16,7 +16,7 @@
       <Button fx:id="newRecipeButton" layoutX="539.0" layoutY="707.0" mnemonicParsing="false" onAction="#pressNewRecipe" prefHeight="58.0" prefWidth="215.0" text="New Recipe++" />
       <Button layoutX="79.0" layoutY="110.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Courses" />
       <Button layoutX="319.0" layoutY="110.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Categories" />
-      <Button layoutX="558.0" layoutY="110.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Favorites" />
+      <Button fx:id="favoriteButton" layoutX="558.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressFavorite" prefHeight="44.0" prefWidth="106.0" text="Favorites" />
       <FlowPane layoutX="144.0" layoutY="212.0" prefHeight="426.0" prefWidth="467.0">
          <children>
             <VBox fx:id="recipe_box" prefHeight="427.0" prefWidth="466.0" />

@@ -63,7 +63,7 @@ public class AddIngredientsController {
 
 	}
 
-	/***Returns the User to the Recipe page***/
+	/***Returns the User to the Menu page***/
 	//@FXML
 	public void returnMenu(ActionEvent event) {
 
@@ -75,7 +75,7 @@ public class AddIngredientsController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Main.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
-			scene.getStylesheets().add(getClass().getResource("application/view/application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application/view/application.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 		}

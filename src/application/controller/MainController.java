@@ -43,15 +43,16 @@ public class MainController implements Initializable
 	@FXML
 	private Button newRecipeButton;
 
+	@FXML
+	private Button favoriteButton;
+
 	private Recipe selected_recipe;
 	private static ArrayList<Recipe> recipes;
-	
+
 	public MainController()
 	{
-		
+
 	}
-
-
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -91,6 +92,9 @@ public class MainController implements Initializable
 			r_lb.setText(r.getName());
 			r_lb.setOnMouseClicked(event -> {
 				System.out.println("Clicked!");
+
+				//IF USER CLICKS LABEL 3 Times then add to favorite??? Could be a good idea
+
 				for(Recipe rr : recipes)
 				{
 					if(r_lb.getText().equals(rr.getName()))
@@ -102,6 +106,7 @@ public class MainController implements Initializable
 			//System.out.println("Adding new label");
 			recipe_box.getChildren().add(r_lb);
 		}
+
 	}
 
 	public void handle_ingredients_scene(Event evt)
@@ -167,7 +172,7 @@ public class MainController implements Initializable
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddIngredients.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root, 800,800);
-		scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+		//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 		}
@@ -178,7 +183,25 @@ public class MainController implements Initializable
 
 	}
 
+	public void pressFavorite(ActionEvent event) {
+		try {
+		Node node = (Node) event.getSource();
+		Stage stage = (Stage)node.getScene().getWindow();
+		stage.close();
 
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Favorite.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root, 800,800);
+		//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
+		}
+		catch (IOException e ) {
+			System.out.print("Error in pressNBewRecipe=\n");
+			e.printStackTrace();
+		}
+
+	}
 
 	public static ArrayList<Recipe> getRecipes() {
 		return recipes;
