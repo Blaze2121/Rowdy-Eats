@@ -8,22 +8,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AddIngredientsController">
    <children>
+      <Label layoutX="293.0" layoutY="81.0" prefHeight="25.0" prefWidth="200.0" text="'Quantity &quot;&lt;space&gt;&quot; Measurement' " />
       <AnchorPane layoutX="-78.0" layoutY="-188.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="52.0" layoutY="44.0" prefHeight="38.0" prefWidth="182.0" text="Enter Recipe Name:">
+      <Label layoutX="36.0" layoutY="123.0" prefHeight="38.0" prefWidth="182.0" text="Enter Recipe Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="recipeName" layoutX="257.0" layoutY="50.0" />
-      <Label layoutX="52.0" layoutY="103.0" prefHeight="38.0" prefWidth="182.0" text="Enter Ingredients:">
+      <TextField fx:id="recipeName" layoutX="218.0" layoutY="129.0" />
+      <Label layoutX="36.0" layoutY="178.0" prefHeight="38.0" prefWidth="182.0" text="Enter Ingredients:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="ingredientButton" layoutX="679.0" layoutY="29.0" mnemonicParsing="false" onAction="#pressNext" prefHeight="31.0" prefWidth="68.0" text="Next" />
-      <Button fx:id="IngredientBButton" layoutX="679.0" layoutY="107.0" mnemonicParsing="false" onAction="#returnMenu" prefHeight="31.0" prefWidth="68.0" text="Back" />
-      <Label layoutX="404.0" layoutY="88.0" prefHeight="31.0" prefWidth="254.0" text="Enter Ingredients as shown :           'Ingredient'" />
-      <Label layoutX="591.0" layoutY="110.0" prefHeight="25.0" prefWidth="68.0" text="'Amount'" />
-      <TextArea fx:id="ingredientTextArea" layoutX="52.0" layoutY="158.0" prefHeight="549.0" prefWidth="684.0" />
+      <Button fx:id="ingredientButton" layoutX="702.0" layoutY="29.0" mnemonicParsing="false" onAction="#pressNext" prefHeight="31.0" prefWidth="68.0" text="Next" />
+      <Button fx:id="IngredientBButton" layoutX="702.0" layoutY="101.0" mnemonicParsing="false" onAction="#returnMenu" prefHeight="31.0" prefWidth="68.0" text="Back" />
+      <Label layoutX="104.0" layoutY="62.0" prefHeight="31.0" prefWidth="254.0" text="Enter Ingredients as shown :           'Ingredient'" />
+      <TextArea fx:id="ingredientTextArea" layoutX="36.0" layoutY="216.0" prefHeight="549.0" prefWidth="728.0" />
+      <Label layoutX="104.0" layoutY="20.0" prefHeight="25.0" prefWidth="512.0" text="&quot;Enter the Name of the Ingredient then press space and enter quantity and measurement type" />
+      <Label layoutX="104.0" layoutY="30.0" prefHeight="31.0" prefWidth="340.0" text="then continue in same format for the rest of the Ingredients&quot;" />
    </children>
 </AnchorPane>

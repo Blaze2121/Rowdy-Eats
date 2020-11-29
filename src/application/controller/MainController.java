@@ -45,10 +45,10 @@ public class MainController implements Initializable
 
 	private Recipe selected_recipe;
 	private static ArrayList<Recipe> recipes;
+	
 	public MainController()
 	{
-
-
+		
 	}
 
 
