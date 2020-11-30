@@ -86,7 +86,7 @@ public class RecipeController implements Initializable {
 		/***load data****/
 		try {
 			//String;
-//			titleLabel.setText(recipe.getTitle()); //Correct? Label or get input again?
+			//titleLabel.setText(recipe.getTitle()); //Correct?
 		}
 		catch (Exception e)
 		{
@@ -100,7 +100,7 @@ public class RecipeController implements Initializable {
 	}
 
 	/*SAVES THE INPUT FROM INGREDIENTS AND RECIPE*/
-	public void saveRecipe() throws IOException {			//IS THIS A FXML??
+	public void saveRecipe() throws IOException {
 		String outputAmount = recipeAmount.getText();
 		String outputSize = recipeSize.getText();
 		String outputCalories = recipeCal.getText();
@@ -125,13 +125,12 @@ public class RecipeController implements Initializable {
 		/**************CREATES THE INGREDIENT/NUTRITION FILES********************/
 		try {
 
-			File ingredientFile = new File(recipe.getTitle() + "_ingredients.txt"); //CORRECT??
+			File ingredientFile = new File(recipe.getTitle() + "_ingredients.txt");
 			File nutritionFile = new File(recipe.getTitle() + "_nutrition.txt");
 
 			if (ingredientFile.createNewFile()) {
 				FileWriter ingredientWrite = new FileWriter(ingredientFile);
-				ingredientWrite.write(recipe.getIngredients().toString() +"\n"); //fix?? CORRECT?
-
+				ingredientWrite.write(recipe.getIngredients().toString() +"\n"); //CORRECT???
 				ingredientWrite.close();
 			}
 			if (nutritionFile.createNewFile()) {

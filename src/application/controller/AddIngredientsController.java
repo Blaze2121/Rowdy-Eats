@@ -10,6 +10,7 @@ import application.model.Recipe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,7 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class AddIngredientsController {
+public class AddIngredientsController implements Initializable {
 /****1st screen:
 	- person enters info
 	- person hits "next"
@@ -54,12 +55,9 @@ public class AddIngredientsController {
 		for (int i = 0; i < newLine.length; i+=2) {
 			arrIngredient.add(new Ingredient(newLine[i], newLine[i+1]));
 		}
-	//	recipe.ad
-		//recipe.
-		//this.recipe.setTitle(outputName);
-		this.recipe.addIngredients(arrIngredient);
+
 		this.recipe.setTitle(outputName);
-		//this.recipe.setIngredients(arrIngredient);
+		this.recipe.setIngredients(arrIngredient);
 
 	}
 
