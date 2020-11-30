@@ -118,10 +118,6 @@ public class RecipeController implements Initializable {
 		totalNutrition = totalNutrition + "," + outputSFat + "," + outputChol + "," + outputSodium + "," + outputTCarb;
 		totalNutrition = totalNutrition + "," + outputDFiber + "," + outputSugar + "," + outputProtein +"\n";
 
-
-
-
-
 		/**************CREATES THE INGREDIENT/NUTRITION FILES********************/
 		try {
 

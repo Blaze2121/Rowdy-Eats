@@ -48,9 +48,6 @@ public class AddIngredientsController implements Initializable {
 		String outputIngredient = ingredientTextArea.getText();
 		ArrayList<Ingredient> arrIngredient = new ArrayList<Ingredient>();
 
-
-
-
 		String[] newLine = outputIngredient.split("\\n");
 		for (int i = 0; i < newLine.length; i+=2) {
 			arrIngredient.add(new Ingredient(newLine[i], newLine[i+1]));
@@ -89,7 +86,6 @@ public class AddIngredientsController implements Initializable {
 	//@FXML
 	public void pressNext(ActionEvent event) {
 
-
 		try {
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage)node.getScene().getWindow();
@@ -103,7 +99,6 @@ public class AddIngredientsController implements Initializable {
 			Scene scene = new Scene(root, 800,800);
 		//	scene.getStylesheets().add(getClass().getResource("application/view/application.css").toExternalForm());
 			stage.setScene(scene);
-
 			//get controller pass the info to the next window
 			//create nonstandard
 			RecipeController conR = loader.getController();
