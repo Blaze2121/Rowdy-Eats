@@ -5,12 +5,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.scene.control.Label;
+
 public class Recipe
 {
 	private String title, category, serving_size, prep_time, cook_time;
+	private Label label;
+	private boolean favorite;
 	private ArrayList<Ingredient> ingredients;
 	private Nutrition nutrition_info;
-	public Recipe(String title, String category, String serving_size, String prep_time, String cook_time)
+	public Recipe(String title, String category, String serving_size, String prep_time, String cook_time, boolean favorite)
 	{
 		nutrition_info = new Nutrition();
 		ingredients = new ArrayList<Ingredient>();
@@ -19,6 +23,7 @@ public class Recipe
 		this.serving_size = serving_size;
 		this.prep_time = prep_time;
 		this.cook_time = cook_time;
+		this.favorite = favorite;
 	}
 
 	public Recipe() {
@@ -171,5 +176,21 @@ public class Recipe
 	public String getServingSize()
 	{
 		return this.serving_size;
+	}
+
+	public boolean isFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(boolean favorite) {
+		this.favorite = favorite;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public void setLabel(Label label) {
+		this.label = label;
 	}
 }

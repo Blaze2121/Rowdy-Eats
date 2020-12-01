@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FavoriteController">
    <children>
-      <AnchorPane layoutX="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0">
+      <AnchorPane layoutX="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
          <children>
             <Label layoutX="74.0" layoutY="35.0" prefHeight="47.0" prefWidth="143.0" text="Favorites:">
                <font>
@@ -17,6 +17,7 @@
             </Label>
             <Button fx:id="backButton" layoutX="679.0" layoutY="35.0" mnemonicParsing="false" onAction="#returnMenu" prefHeight="39.0" prefWidth="70.0" text="Back" />
             <Label fx:id="textLabel" layoutX="74.0" layoutY="82.0" prefHeight="574.0" prefWidth="614.0" />
+            <VBox fx:id="recipe_box" layoutX="74.0" layoutY="82.0" prefHeight="500.0" prefWidth="300.0" spacing="2.0" />
          </children>
       </AnchorPane>
    </children>

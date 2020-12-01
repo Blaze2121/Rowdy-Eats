@@ -5,16 +5,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.swing.BorderFactory;
-
 import application.model.Ingredient;
 import application.model.Nutrition;
 import application.model.Recipe;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,17 +18,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable
 {
-	private Label selected;
 	
 	@FXML
 	private VBox recipe_box;
@@ -51,7 +41,9 @@ public class MainController implements Initializable
 	private Button favoriteButton;
 
 	private Recipe selected_recipe;
-	private static ArrayList<Recipe> recipes;
+	private ArrayList<Recipe> recipes;
+	private Label selected;
+	public int cnt;
 
 	public MainController()
 	{
@@ -60,16 +52,27 @@ public class MainController implements Initializable
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		recipes = new ArrayList<Recipe>();
-		selected_recipe = null;
-
 		initControls();
 	}
 
 
 	private void initControls()
 	{
+		if(recipes == null) {
+			recipes = new ArrayList<Recipe>();
+			loadAll();
+		}
+		else {
+			for(Recipe r : recipes) {
+				recipe_box.getChildren().add(r.getLabel());
+			}
+		}
 		
+
+	}
+	
+	public void loadAll() {
+		cnt = 1;
 		ArrayList<String> foods = Recipe.load_recipes("data/recipe.txt");
 		for(String food : foods)
 		{
@@ -83,7 +86,8 @@ public class MainController implements Initializable
 			String cook_time = pieces[4];
 			String ingredients_file = "data/" + pieces[5];
 			String nutrition_file = "data/" + pieces[6];
-			Recipe r = new Recipe(title, category, serving_size, prep_time, cook_time);
+			boolean favorite = Boolean.parseBoolean(pieces[7]);
+			Recipe r = new Recipe(title, category, serving_size, prep_time, cook_time, favorite);
 			r.addIngredients(Ingredient.load_ingredients(ingredients_file));
 			Nutrition n = Nutrition.load_nutrition_info(nutrition_file);
 			r.setNutrition(n);
@@ -93,8 +97,8 @@ public class MainController implements Initializable
 		for(Recipe r : recipes)
 		{
 			Label r_lb = new Label();
+			r_lb.setText(r.isFavorite()?"* " + r.getName(): r.getName());
 			r_lb.setId(r.getName());
-			r_lb.setText(r.getName());
 			r_lb.setOnMouseEntered( e -> {
 				r_lb.setScaleX(1.1);
 				r_lb.setScaleY(1.1);
@@ -104,27 +108,49 @@ public class MainController implements Initializable
 				r_lb.setScaleY(1);
 			});
 			r_lb.setOnMouseClicked(event -> {
-				if(selected != null && selected != r_lb) {
-					selected.setBorder(null);
+				if(selected != null && selected != r_lb) 
+				{
+					cnt = 1;
+					selected.setStyle("-fx-border-color: transparent;");
+				}
+				if(selected == r_lb) 
+				{
+					cnt += 1;
+					
 				}
 				setSelected(r_lb);
 				r_lb.setStyle("-fx-border-color: black;");
-				System.out.println("Clicked!");
-
-				//IF USER CLICKS LABEL 3 Times then add to favorite??? Could be a good idea
-
+				
 				for(Recipe rr : recipes)
 				{
-					if(r_lb.getText().equals(rr.getName()))
+					if(r_lb.getId().equals(rr.getName()))
 					{
 						selected_recipe = rr;
+						if(cnt >= 3) 
+						{
+							if(selected_recipe.isFavorite()) 
+							{
+								selected_recipe.setFavorite(false);
+								r_lb.setText(selected_recipe.getName());
+								
+							}
+							else 
+							{
+								selected_recipe.setFavorite(true);
+								r_lb.setText("* " + selected_recipe.getName());
+							}
+							
+							cnt = 0;
+							break;
+						}
 					}
 				}
+				//System.out.println(selected.getText() + " " + String.valueOf(selected_recipe.isFavorite()) + " " + cnt );
 			});
 			//System.out.println("Adding new label");
+			r.setLabel(r_lb);
 			recipe_box.getChildren().add(r_lb);
 		}
-
 	}
 
 	public void handle_ingredients_scene(Event evt)
@@ -210,6 +236,9 @@ public class MainController implements Initializable
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Favorite.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root, 800,800);
+		FavoriteController favCon = loader.getController();
+		favCon.recipes = recipes;
+		favCon.loadFavs();
 		//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
@@ -221,14 +250,14 @@ public class MainController implements Initializable
 
 	}
 
-	public static ArrayList<Recipe> getRecipes() {
+	public ArrayList<Recipe> getRecipes() {
 		return recipes;
 	}
 
 
 
-	public static void setRecipes(ArrayList<Recipe> recipes) {
-		MainController.recipes = recipes;
+	public void setRecipes(ArrayList<Recipe> recipes) {
+		this.recipes = recipes;
 	}
 
 	public Label getSelected() {
