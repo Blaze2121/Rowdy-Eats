@@ -97,14 +97,12 @@ public class AddIngredientsController implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Recipe.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
-		//	scene.getStylesheets().add(getClass().getResource("application/view/application.css").toExternalForm());
+	
 			stage.setScene(scene);
-			//get controller pass the info to the next window
-			//create nonstandard
+		
 			RecipeController conR = loader.getController();
 			getIngredients();
 			conR.transferRecipe(this.recipe);
-			//String
 
 			stage.show();
 		}

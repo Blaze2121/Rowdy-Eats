@@ -26,6 +26,60 @@ public class Recipe
 		ingredients = new ArrayList<Ingredient>();
 	}
 
+
+
+	/**********************************************/
+	public void setNutrition(Nutrition n)
+	{
+		nutrition_info = n;
+		nutrition_info.setRecipeName(title);
+	}
+
+	public void clearIngredients()
+	{
+		ingredients.clear();
+	}
+
+	public void addIngredient(Ingredient i)
+	{
+		ingredients.add(i);
+	}
+
+	public void addIngredients(ArrayList<Ingredient> ingredients)
+	{
+		for(Ingredient i : ingredients)
+		{
+			addIngredient(i);
+		}
+	}
+
+	public static ArrayList<String> loadRecipes(String filename)
+	{
+		System.out.println("Loading recipes...");
+		try {
+			ArrayList<String> ret = new ArrayList<String>();
+			BufferedReader file_reader = new BufferedReader(new FileReader(filename));
+	        String content = file_reader.readLine();
+	        while (content != null)
+	        {
+	        	ret.add(content);
+	            content = file_reader.readLine();
+	        }
+	        file_reader.close();
+	        return ret;
+		}
+
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		System.out.println("Finished loading.");
+
+		return new ArrayList<String>();
+	}
+	/********************************************************/
+
 	public String getTitle() {
 		return title;
 	}
@@ -66,6 +120,14 @@ public class Recipe
 		this.cook_time = cook_time;
 	}
 
+	public ArrayList<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(ArrayList<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+
 	public Nutrition getNutrition_info() {
 		return nutrition_info;
 	}
@@ -74,102 +136,4 @@ public class Recipe
 		this.nutrition_info = nutrition_info;
 	}
 
-	public void setIngredients(ArrayList<Ingredient> ingredients) {
-		this.ingredients = ingredients;
-	}
-
-	public void setNutrition(Nutrition n)
-	{
-		nutrition_info = n;
-		nutrition_info.setRecipeName(title);
-	}
-
-	public Nutrition getNutrition()
-	{
-		return nutrition_info;
-	}
-
-	public String getName()
-	{
-		return title;
-	}
-
-	public void clearIngredients()
-	{
-		ingredients.clear();
-	}
-
-	public void addIngredient(Ingredient i)
-	{
-		ingredients.add(i);
-	}
-
-	public void addIngredients(ArrayList<Ingredient> ingredients)
-	{
-		for(Ingredient i : ingredients)
-		{
-			addIngredient(i);
-		}
-	}
-
-	public ArrayList<Ingredient> getIngredients()
-	{
-		return this.ingredients;
-	}
-
-	public static ArrayList<String> load_recipes(String filename)
-	{
-		System.out.println("Loading recipes...");
-		try {
-			ArrayList<String> ret = new ArrayList<String>();
-			BufferedReader file_reader = new BufferedReader(new FileReader(filename));
-	        String content = file_reader.readLine();
-	        while (content != null)
-	        {
-	        	ret.add(content);
-	            content = file_reader.readLine();
-	        }
-	        file_reader.close();
-	        return ret;
-		}
-
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
-
-		System.out.println("Finished loading.");
-
-		return new ArrayList<String>();
-	}
-
-	public void setServingSize(String size)
-	{
-		this.serving_size = size;
-	}
-
-	public void setPrepTime(String time)
-	{
-		this.prep_time = time;
-	}
-
-	public void setCookTime(String time)
-	{
-		this.cook_time = time;
-	}
-
-	public String getPrepTime()
-	{
-		return this.prep_time;
-	}
-
-	public String getCookTime()
-	{
-		return this.cook_time;
-	}
-
-	public String getServingSize()
-	{
-		return this.serving_size;
-	}
 }

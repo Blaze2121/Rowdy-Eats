@@ -31,7 +31,7 @@ public class IngredientsController implements EventHandler
 	public void setIngredients(Recipe r)
 	{
 		initControl();
-		recipe_lb.setText(r.getName());
+		recipe_lb.setText(r.getTitle());
 		ArrayList<Ingredient> ingredients = r.getIngredients();
 
 		for(Ingredient i : ingredients)

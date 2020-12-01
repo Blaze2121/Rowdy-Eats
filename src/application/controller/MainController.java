@@ -66,7 +66,7 @@ public class MainController implements Initializable
 	private void initControls()
 	{
 
-		ArrayList<String> foods = Recipe.load_recipes("data/recipe.txt");
+		ArrayList<String> foods = Recipe.loadRecipes("data/recipe.txt");
 		for(String food : foods)
 		{
 			//title, category, serving_size, prep_time, cook_time, ingredients_file_name.txt
@@ -89,7 +89,7 @@ public class MainController implements Initializable
 		for(Recipe r : recipes)
 		{
 			Label r_lb = new Label();
-			r_lb.setText(r.getName());
+			r_lb.setText(r.getTitle());
 			r_lb.setOnMouseClicked(event -> {
 				System.out.println("Clicked!");
 
@@ -97,7 +97,7 @@ public class MainController implements Initializable
 
 				for(Recipe rr : recipes)
 				{
-					if(r_lb.getText().equals(rr.getName()))
+					if(r_lb.getText().equals(rr.getTitle()))
 					{
 						selected_recipe = rr;
 					}

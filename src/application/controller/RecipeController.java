@@ -66,6 +66,12 @@ public class RecipeController implements Initializable {
 	private TextField recipeSFat;
 
 	@FXML
+	private TextField recipePrepTime;
+
+	@FXML
+	private TextField recipeCookTime;
+
+	@FXML
 	private Button backButton;
 
 	@FXML
@@ -101,22 +107,28 @@ public class RecipeController implements Initializable {
 
 	/*SAVES THE INPUT FROM INGREDIENTS AND RECIPE*/
 	public void saveRecipe() throws IOException {
-		String outputAmount = recipeAmount.getText();
-		String outputSize = recipeSize.getText();
-		String outputCalories = recipeCal.getText();
-		String outputTFat = recipeTotFat.getText();
-		String outputSFat = recipeSFat.getText();
-		String outputChol = recipeCh.getText();
-		String outputSodium = recipeSodium.getText();
-		String outputTCarb = recipeCarb.getText();
-		String outputDFiber = recipeDFiber.getText();
-		String outputSugar = recipeSugar.getText();
-		String outputProtein = recipeProtein.getText();
+		String inputAmount = recipeAmount.getText();
+		String inputSize = recipeSize.getText();
+		String inputCalories = recipeCal.getText();
+		String inputTFat = recipeTotFat.getText();
+		String inputSFat = recipeSFat.getText();
+		String inputChol = recipeCh.getText();
+		String inputSodium = recipeSodium.getText();
+		String inputTCarb = recipeCarb.getText();
+		String inputDFiber = recipeDFiber.getText();
+		String inputSugar = recipeSugar.getText();
+		String inputProtein = recipeProtein.getText();
+
+
+		String inputPrep = recipeProtein.getText();
+		String inputCook = recipeProtein.getText();
+
+
 
 		//Should it end with a newline?????
-		String totalNutrition = outputAmount + "," + outputSize + "," + outputCalories + "," + outputTFat;
-		totalNutrition = totalNutrition + "," + outputSFat + "," + outputChol + "," + outputSodium + "," + outputTCarb;
-		totalNutrition = totalNutrition + "," + outputDFiber + "," + outputSugar + "," + outputProtein +"\n";
+		String totalNutrition = inputAmount + "," + inputSize + "," + inputCalories + "," + inputTFat;
+		totalNutrition = totalNutrition + "," + inputSFat + "," + inputChol + "," + inputSodium + "," + inputTCarb;
+		totalNutrition = totalNutrition + "," + inputDFiber + "," + inputSugar + "," + inputProtein +"\n";
 
 		/**************CREATES THE INGREDIENT/NUTRITION FILES********************/
 		try {
@@ -148,7 +160,7 @@ public class RecipeController implements Initializable {
 		/***********************************************/
 
 		String totalRecipe = recipe.getTitle() + "," + recipe.getIngredients().toString(); //NOT CORRECT SINCE INGREDIENTS SAVED IN RECIPE??? and not individual???Nevermind?
-		totalRecipe = totalRecipe + ","+ recipe.getPrep_time() + "," + recipe.getCook_time() + "," + recipe.getTitle() + "_ingredients.txt" + ","; // not sure about 20,90 for ingredient Amount
+		totalRecipe = totalRecipe + ","+ recipe + "," + recipe.getCook_time() + "," + recipe.getTitle() + "_ingredients.txt" + ","; // not sure about 20,90 for ingredient Amount
 		totalRecipe = totalRecipe + recipe.getTitle() + "_nutrition.txt";
 
 		try {
