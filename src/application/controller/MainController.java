@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.swing.BorderFactory;
-
 import application.model.Ingredient;
 import application.model.Nutrition;
 import application.model.Recipe;
@@ -26,15 +24,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable
 {
-	private Label selected;
-	
+
 	@FXML
 	private VBox recipe_box;
 
@@ -69,7 +65,7 @@ public class MainController implements Initializable
 
 	private void initControls()
 	{
-		
+
 		ArrayList<String> foods = Recipe.load_recipes("data/recipe.txt");
 		for(String food : foods)
 		{
@@ -93,22 +89,8 @@ public class MainController implements Initializable
 		for(Recipe r : recipes)
 		{
 			Label r_lb = new Label();
-			r_lb.setId(r.getName());
 			r_lb.setText(r.getName());
-			r_lb.setOnMouseEntered( e -> {
-				r_lb.setScaleX(1.1);
-				r_lb.setScaleY(1.1);
-			});
-			r_lb.setOnMouseExited( e -> {
-				r_lb.setScaleX(1);
-				r_lb.setScaleY(1);
-			});
 			r_lb.setOnMouseClicked(event -> {
-				if(selected != null && selected != r_lb) {
-					selected.setBorder(null);
-				}
-				setSelected(r_lb);
-				r_lb.setStyle("-fx-border-color: black;");
 				System.out.println("Clicked!");
 
 				//IF USER CLICKS LABEL 3 Times then add to favorite??? Could be a good idea
@@ -229,14 +211,6 @@ public class MainController implements Initializable
 
 	public static void setRecipes(ArrayList<Recipe> recipes) {
 		MainController.recipes = recipes;
-	}
-
-	public Label getSelected() {
-		return selected;
-	}
-
-	public void setSelected(Label selected) {
-		this.selected = selected;
 	}
 
 
