@@ -92,7 +92,7 @@ public class AddIngredientsController implements Initializable {
 
 			stage.close();
 
-			//stage = new Stage();
+			stage = new Stage();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Recipe.fxml"));
 			Parent root = loader.load();
@@ -103,7 +103,7 @@ public class AddIngredientsController implements Initializable {
 			//create nonstandard
 			RecipeController conR = loader.getController();
 			getIngredients();
-			conR.transferRecipe(recipe);
+			conR.transferRecipe(this.recipe);
 			//String
 
 			stage.show();

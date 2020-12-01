@@ -91,7 +91,7 @@ public class Recipe
 
 	public String getName()
 	{
-		return this.title;
+		return title;
 	}
 
 	public void clearIngredients()

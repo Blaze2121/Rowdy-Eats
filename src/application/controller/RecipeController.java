@@ -85,8 +85,7 @@ public class RecipeController implements Initializable {
 	{
 		/***load data****/
 		try {
-			//String;
-			//titleLabel.setText(recipe.getTitle()); //Correct?
+
 		}
 		catch (Exception e)
 		{
@@ -97,6 +96,7 @@ public class RecipeController implements Initializable {
 
 	public void transferRecipe( Recipe recipe) {
 		this.recipe = recipe;
+		titleLabel.setText(recipe.getTitle());
 	}
 
 	/*SAVES THE INPUT FROM INGREDIENTS AND RECIPE*/
@@ -191,7 +191,7 @@ public class RecipeController implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddIngredients.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
-			//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+
 			stage.setScene(scene);
 			stage.show();
 		}

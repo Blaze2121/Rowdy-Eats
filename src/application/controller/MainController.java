@@ -123,7 +123,7 @@ public class MainController implements Initializable
 				IngredientsController con = loader.getController();
 				con.setIngredients(selected_recipe);
 				Scene scene = new Scene(root);
-			//	scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+
 				stage.setScene(scene);
 				stage.show();
 			}
@@ -150,7 +150,7 @@ public class MainController implements Initializable
 				NutritionController con = loader.getController();
 				con.setNutrition(selected_recipe);
 				Scene scene = new Scene(root);
-				//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+
 				stage.setScene(scene);
 				stage.show();
 			}
@@ -172,7 +172,7 @@ public class MainController implements Initializable
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddIngredients.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root, 800,800);
-		//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+
 		stage.setScene(scene);
 		stage.show();
 		}
@@ -192,7 +192,7 @@ public class MainController implements Initializable
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Favorite.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root, 800,800);
-		//scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
+
 		stage.setScene(scene);
 		stage.show();
 		}
