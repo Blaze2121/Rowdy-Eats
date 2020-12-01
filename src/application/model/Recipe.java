@@ -9,6 +9,7 @@ public class Recipe
 {
 	private String title, category, serving_size, prep_time, cook_time;
 	private ArrayList<Ingredient> ingredients;
+	private ArrayList<Nutrition> nutritions;
 	private Nutrition nutrition_info;
 	public Recipe(String title, String category, String serving_size, String prep_time, String cook_time)
 	{
@@ -24,6 +25,7 @@ public class Recipe
 	public Recipe() {
 		this.nutrition_info = new Nutrition();
 		ingredients = new ArrayList<Ingredient>();
+		nutritions = new ArrayList<Nutrition>();
 	}
 
 
@@ -134,6 +136,14 @@ public class Recipe
 
 	public void setNutrition_info(Nutrition nutrition_info) {
 		this.nutrition_info = nutrition_info;
+	}
+
+	public ArrayList<Nutrition> getNutritions() {
+		return nutritions;
+	}
+
+	public void setNutritions(ArrayList<Nutrition> nutritions) {
+		this.nutritions = nutritions;
 	}
 
 }

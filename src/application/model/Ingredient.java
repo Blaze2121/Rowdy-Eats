@@ -8,14 +8,14 @@ import java.util.ArrayList;
 public class Ingredient {
 	private String ingredient;
 	private String amount;
-	
+
 	public Ingredient(String ingredient, String amount)
 	{
 		this.ingredient = ingredient;
 		this.amount = amount;
 	}
 
-	public static ArrayList<Ingredient> load_ingredients(String filename) 
+	public static ArrayList<Ingredient> load_ingredients(String filename)
 	{
 			try {
 				ArrayList<Ingredient> ret = new ArrayList<Ingredient>();
@@ -35,26 +35,31 @@ public class Ingredient {
 			    file_reader.close();
 			    return ret;
 			}
-			
+
 			catch(IOException e)
 			{
 				e.printStackTrace();
 			}
-			
+
 			return new ArrayList<Ingredient>();
-			
+
 	}
-	
+
 	public String toString(){
 		String ret = "";
 		ret += this.ingredient + "," + this.amount;
 		return ret;
 	}
-	
+
+	public String toCSVString() {
+		String ret = "";
+		return ret += this.ingredient + "," + this.amount + "\n";
+	}
+
 	public String getIngredient() {
 		return ingredient;
 	}
-	
+
 	public void setIngredient(String ingredient) {
 		this.ingredient = ingredient;
 	}

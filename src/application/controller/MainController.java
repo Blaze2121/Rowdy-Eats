@@ -67,10 +67,11 @@ public class MainController implements Initializable
 	{
 
 		ArrayList<String> foods = Recipe.loadRecipes("data/recipe.txt");
-		for(String food : foods)
+		//for(String food : foods)
+		for(int i = 1; i < foods.size(); i++)
 		{
 			//title, category, serving_size, prep_time, cook_time, ingredients_file_name.txt
-			String[] pieces = food.split(",");
+			String[] pieces = foods.get(i).split(",");
 
 			String title = pieces[0];
 			String category = pieces[1];
@@ -86,20 +87,22 @@ public class MainController implements Initializable
 			recipes.add(r);
 		}
 
-		for(Recipe r : recipes)
+		//for(Recipe r : recipes)
+		for (int i = 0; i < recipes.size(); i++)
 		{
 			Label r_lb = new Label();
-			r_lb.setText(r.getTitle());
+			r_lb.setText(recipes.get(i).getTitle());
 			r_lb.setOnMouseClicked(event -> {
 				System.out.println("Clicked!");
 
 				//IF USER CLICKS LABEL 3 Times then add to favorite??? Could be a good idea
 
-				for(Recipe rr : recipes)
+				//for(Recipe rr : recipes)
+				for (int j = 0; j < recipes.size(); j++)
 				{
-					if(r_lb.getText().equals(rr.getTitle()))
+					if(r_lb.getText().equals(recipes.get(j).getTitle()))
 					{
-						selected_recipe = rr;
+						selected_recipe = recipes.get(j);
 					}
 				}
 			});

@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.model.Ingredient;
+import application.model.Nutrition;
 import application.model.Recipe;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -72,12 +73,16 @@ public class RecipeController implements Initializable {
 	private TextField recipeCookTime;
 
 	@FXML
+	private TextField recipeCategory;
+
+	@FXML
 	private Button backButton;
 
 	@FXML
 	private Label titleLabel;
 
 	Recipe recipe;
+	Nutrition nutrition;
 
 	Ingredient ingredient;//not sure on this one
 
@@ -119,22 +124,31 @@ public class RecipeController implements Initializable {
 		String inputSugar = recipeSugar.getText();
 		String inputProtein = recipeProtein.getText();
 
-
+		String inputCategory = recipeCategory.getText();
 		String inputPrep = recipeProtein.getText();
 		String inputCook = recipeProtein.getText();
 
-
+		recipe.setCategory(inputCategory);
+		recipe.setServing_size(inputSize);
+		recipe.setPrep_time(inputPrep);
+		recipe.setCook_time(inputCook);
 
 		//Should it end with a newline?????
 		String totalNutrition = inputAmount + "," + inputSize + "," + inputCalories + "," + inputTFat;
 		totalNutrition = totalNutrition + "," + inputSFat + "," + inputChol + "," + inputSodium + "," + inputTCarb;
 		totalNutrition = totalNutrition + "," + inputDFiber + "," + inputSugar + "," + inputProtein +"\n";
 
+		//for (int i = 0; i < totalNutrition)
+
+		//recipe.setNutritions(nutritions);
 		/**************CREATES THE INGREDIENT/NUTRITION FILES********************/
 		try {
+			String ingredientName = recipe.getTitle() + "_ingredients.txt";
+			String nutritionName = recipe.getTitle() + "_nutrition.txt";
 
-			File ingredientFile = new File(recipe.getTitle() + "_ingredients.txt");
-			File nutritionFile = new File(recipe.getTitle() + "_nutrition.txt");
+
+			File ingredientFile = new File(ingredientName);
+			File nutritionFile = new File(nutritionName);
 
 			if (ingredientFile.createNewFile()) {
 				FileWriter ingredientWrite = new FileWriter(ingredientFile);
@@ -152,16 +166,12 @@ public class RecipeController implements Initializable {
 			System.out.println("ERROR: Ingredient/Nutrition=");
 			e.printStackTrace();
 		}
-
-
-
-
-
 		/***********************************************/
 
-		String totalRecipe = recipe.getTitle() + "," + recipe.getIngredients().toString(); //NOT CORRECT SINCE INGREDIENTS SAVED IN RECIPE??? and not individual???Nevermind?
-		totalRecipe = totalRecipe + ","+ recipe + "," + recipe.getCook_time() + "," + recipe.getTitle() + "_ingredients.txt" + ","; // not sure about 20,90 for ingredient Amount
-		totalRecipe = totalRecipe + recipe.getTitle() + "_nutrition.txt";
+		//Title,Course,Serving Size,Prep Time,Cook Time,Ingredient.txt,Nutrition.txt
+		String totalRecipe = recipe.getTitle() + "," + recipe.getCategory() + "," + recipe.getServing_size() + "," + recipe.getPrep_time(); //NOT CORRECT SINCE INGREDIENTS SAVED IN RECIPE??? and not individual???Nevermind?
+		totalRecipe = totalRecipe + ","+ recipe.getCook_time() + "," + recipe.getTitle() + "_ingredients.txt" + ","; // not sure about 20,90 for ingredient Amount
+		totalRecipe = totalRecipe + recipe.getTitle() + "_nutrition.txt\n";
 
 		try {
 			FileWriter recipeFile = new FileWriter("data/recipe.txt", true);
@@ -175,17 +185,10 @@ public class RecipeController implements Initializable {
 			System.out.println("ERROR: recipeFile=");
 			e.printStackTrace();
 		}
-
-
-
-
 		//create the ingredients file
 		// create the recipe file
 		// append the ingredients and recipes file names into a recipe.txt (index file)
 		//save the files
-
-
-
 	}
 
 
@@ -215,12 +218,13 @@ public class RecipeController implements Initializable {
 		}
 	}
 
-	/***Saves/Submits the user's input into the csv file then goes to main page
+	/***
+	 * Saves/Submits the user's input into the csv file then goes to main page
 	 *
 	 * ***/
 	public void pressSubmit (ActionEvent event) {
-
 		try {
+			saveRecipe();
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage)node.getScene().getWindow();
 			stage.close();
