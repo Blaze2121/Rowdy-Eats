@@ -143,8 +143,8 @@ public class RecipeController implements Initializable {
 		//recipe.setNutritions(nutritions);
 		/**************CREATES THE INGREDIENT/NUTRITION FILES********************/
 		try {
-			String ingredientName = recipe.getTitle() + "_ingredients.txt";
-			String nutritionName = recipe.getTitle() + "_nutrition.txt";
+			String ingredientName = "data/" + recipe.getTitle() + "_ingredients.txt";
+			String nutritionName = "data/" + recipe.getTitle() + "_nutrition.txt";
 
 
 			File ingredientFile = new File(ingredientName);
@@ -224,11 +224,11 @@ public class RecipeController implements Initializable {
 	 * ***/
 	public void pressSubmit (ActionEvent event) {
 		try {
-			saveRecipe();
+
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage)node.getScene().getWindow();
 			stage.close();
-
+			saveRecipe();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/Main.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root, 800,800);
