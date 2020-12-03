@@ -1,13 +1,18 @@
 package application.model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Recipe
 {
 	private String title, category, serving_size, prep_time, cook_time;
+	private boolean favorite;
 	private ArrayList<Ingredient> ingredients;
 	private ArrayList<Nutrition> nutritions;
 	private Nutrition nutrition_info;
@@ -20,6 +25,7 @@ public class Recipe
 		this.serving_size = serving_size;
 		this.prep_time = prep_time;
 		this.cook_time = cook_time;
+		this.favorite = false;
 	}
 
 	public Recipe() {
@@ -145,5 +151,55 @@ public class Recipe
 	public void setNutritions(ArrayList<Nutrition> nutritions) {
 		this.nutritions = nutritions;
 	}
+	
+	public boolean isFavorite() {
+		return this.favorite;
+	}
 
+	public boolean switchFavorite() {
+		favorite = favorite ? false : true;
+		return favorite;
+	}
+
+	public static void saveFav(ArrayList<Recipe> recipes) throws IOException {
+		List<String> list = new ArrayList<String>();
+		for(Recipe r: recipes) {
+			if(r.isFavorite()) {
+				list.add(r.getTitle());
+			}
+		}
+	    File csvOutputFile = new File("data/Favorites.txt");
+	    try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
+	    	list.stream().forEach(pw::println);	    	
+	    }
+	}
+	
+	public static void loadFav(ArrayList<Recipe> recipes) {
+		System.out.println("Loading favorites...");
+		try {
+			ArrayList<String> list = new ArrayList<String>();
+			File file = new File("data/Favorites.txt");
+			file.createNewFile();
+			BufferedReader file_reader = new BufferedReader(new FileReader("data/Favorites.txt"));
+	        String content = file_reader.readLine();
+	        while (content != null)
+	        {
+	        	list.add(content);
+	            content = file_reader.readLine();
+	        }
+	        file_reader.close();
+	        for(String s : list) {
+	        	for(Recipe r : recipes) {
+	        		if(s.equalsIgnoreCase(r.getTitle())) {
+	        			r.switchFavorite();
+	        		}
+	        	}
+	        }
+		}
+
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

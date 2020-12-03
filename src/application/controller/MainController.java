@@ -8,11 +8,8 @@ import java.util.ResourceBundle;
 import application.model.Ingredient;
 import application.model.Nutrition;
 import application.model.Recipe;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,11 +18,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable
@@ -49,6 +44,7 @@ public class MainController implements Initializable
 	private Recipe selected_recipe;
 	private static ArrayList<Recipe> recipes;
 	private Label selected_label;
+	public int cnt;
 
 	public MainController()
 	{
@@ -59,6 +55,7 @@ public class MainController implements Initializable
 	public void initialize(URL location, ResourceBundle resources) {
 		recipes = new ArrayList<Recipe>();
 		selected_recipe = null;
+		cnt = 1;
 
 		initControls();
 	}
@@ -87,12 +84,15 @@ public class MainController implements Initializable
 			r.setNutrition(n);
 			recipes.add(r);
 		}
+		Recipe.loadFav(recipes);
 
 		//for(Recipe r : recipes)
 		for (int i = 0; i < recipes.size(); i++)
 		{
 			Label r_lb = new Label();
+			r_lb.setStyle(recipes.get(i).isFavorite() ? "-fx-text-fill: green;" : "-fx-text-fill: black;");
 			r_lb.setText(recipes.get(i).getTitle());
+			r_lb.setId(recipes.get(i).getTitle());
 			r_lb.setOnMouseEntered( e -> {
 				r_lb.setScaleX(1.1);
 				r_lb.setScaleY(1.1);
@@ -102,24 +102,43 @@ public class MainController implements Initializable
 				r_lb.setScaleY(1);
 			});
 			r_lb.setOnMouseClicked(event -> {
-				System.out.println("Clicked!");
-				if(selected_label != null && selected_label != r_lb) 
+				System.out.print("Clicked! ");
+				if(selected_label != r_lb) 
 				{
-					selected_label.setStyle("-fx-border-color: transparent;");
-				}
-				setSelected_label(r_lb);
-				r_lb.setStyle("-fx-border-color: black;");
-
-				//IF USER CLICKS LABEL 3 Times then add to favorite??? Could be a good idea
-
-				//for(Recipe rr : recipes)
-				for (int j = 0; j < recipes.size(); j++)
-				{
-					if(r_lb.getText().equals(recipes.get(j).getTitle()))
-					{
-						selected_recipe = recipes.get(j);
+					cnt = 0;
+					if(selected_label !=null) {
+						selected_label.setStyle("-fx-border-color: transparent;");
+						selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
+						
 					}
+										
+					for (int j = 0; j < recipes.size(); j++)
+					{
+						if(r_lb.getText().equals(recipes.get(j).getTitle()))
+						{
+							selected_recipe = recipes.get(j);
+						}
+					}
+					setSelected_label(r_lb);
+					selected_label.setStyle("-fx-border-color: black;");
+					selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
 				}
+				cnt += 1;
+				System.out.println(cnt);
+				if(cnt == 3) {
+					selected_recipe.switchFavorite();
+					selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
+					try {
+						Recipe.saveFav(recipes);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					cnt = 0;
+					System.out.println(selected_recipe.getTitle() + " Favorite " + String.valueOf(selected_recipe.isFavorite()) + "\nCount set back to 0");
+				}				
+				
+				
 			});
 			//System.out.println("Adding new label");
 			recipe_box.getChildren().add(r_lb);
