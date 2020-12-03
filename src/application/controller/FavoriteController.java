@@ -2,25 +2,48 @@ package application.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.model.Recipe;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class FavoriteController {
+public class FavoriteController{
 
+	@FXML
 	private Button backButton;
+	@FXML
 	private Label textLabel;
+	@FXML
+	private VBox vBox;
+	
+	private ArrayList<Recipe> recipes;
+	private ArrayList<Label> labels;
 
-	public void initialize(URL location, ResourceBundle resources) {
-		this.textLabel = new Label();
+	public void loadFavs(ArrayList<Recipe> p, ArrayList<Label> b) {
+		setRecipes(p);
+		setLabels(b);
+		System.out.println("Trying to add labels to favorites");
+		for(Recipe r : recipes) {
+			if(r.isFavorite()) {
+				for(Label l : labels) { 
+					if(r.getTitle().equalsIgnoreCase(l.getText())) {
+						System.out.println(l.getText() + " label added to favorites");
+						vBox.getChildren().add(l);
+					}
+				}
+			}
+		}
 	}
 
 
@@ -47,6 +70,30 @@ public class FavoriteController {
 			System.out.println("Failed to switch scenes.");
 			e.printStackTrace();
 		}
+	}
+
+
+
+	public ArrayList<Recipe> getRecipes() {
+		return recipes;
+	}
+
+
+
+	public void setRecipes(ArrayList<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
+
+
+	public ArrayList<Label> getLabels() {
+		return labels;
+	}
+
+
+
+	public void setLabels(ArrayList<Label> labels) {
+		this.labels = labels;
 	}
 
 }
