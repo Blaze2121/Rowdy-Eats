@@ -18,6 +18,8 @@
             <Button fx:id="backButton" layoutX="679.0" layoutY="35.0" mnemonicParsing="false" onAction="#returnMenu" prefHeight="39.0" prefWidth="70.0" text="Back" />
             <Label fx:id="textLabel" layoutX="74.0" layoutY="82.0" prefHeight="574.0" prefWidth="614.0" />
             <VBox fx:id="vBox" layoutX="74.0" layoutY="100.0" prefHeight="600.0" prefWidth="350.0" />
+            <Button fx:id="nut_btn" layoutX="424.0" layoutY="711.0" mnemonicParsing="false" onAction="#handle_nutrition_scene" prefHeight="58.0" prefWidth="120.0" text="Nutrition Info" />
+            <Button fx:id="ing_btn" layoutX="275.0" layoutY="711.0" mnemonicParsing="false" onAction="#handle_ingredients_scene" prefHeight="58.0" prefWidth="120.0" text="Ingredients" />
          </children>
       </AnchorPane>
    </children>

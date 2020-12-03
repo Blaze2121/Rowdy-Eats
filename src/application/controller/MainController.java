@@ -27,7 +27,6 @@ public class MainController implements Initializable
 {
 	
 	private ArrayList<Recipe> recipes;
-	private ArrayList<Label> labels;
 	private Label selected_label;
 	private Recipe selected_recipe;
 	public int cnt;
@@ -55,7 +54,6 @@ public class MainController implements Initializable
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		recipes = new ArrayList<Recipe>();
-		labels = new ArrayList<Label>();
 		cnt = 1;
 		
 		initControls();		
@@ -118,6 +116,7 @@ public class MainController implements Initializable
 						if(r_lb.getText().equals(recipes.get(j).getTitle()))
 						{
 							selected_recipe = recipes.get(j);
+							System.out.print("Selected Recipe is now " + selected_recipe.getTitle() + " ");
 						}
 					}
 					setSelected_label(r_lb);
@@ -143,7 +142,6 @@ public class MainController implements Initializable
 			});
 			//System.out.println("Adding new label");
 			recipe_box.getChildren().add(r_lb);
-			labels.add(r_lb);
 		}
 
 	}
@@ -237,7 +235,7 @@ public class MainController implements Initializable
 		Parent root = loader.load();
 		Scene scene = new Scene(root, 800,800);
 		FavoriteController favCon = loader.getController();
-		favCon.loadFavs(recipes, labels);
+		favCon.loadFavs(recipes);
 
 		stage.setScene(scene);
 		stage.show();
@@ -257,11 +255,6 @@ public class MainController implements Initializable
 
 	public void setRecipes(ArrayList<Recipe> recipes) {
 		this.recipes = recipes;
-	}
-
-	public void setLabels(ArrayList<Label> labels) {
-		this.labels = labels;
-		
 	}
 
 
