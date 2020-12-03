@@ -3,6 +3,7 @@ package application.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import application.model.Ingredient;
@@ -101,49 +102,53 @@ public class MainController implements Initializable
 				r_lb.setScaleY(1);
 			});
 			r_lb.setOnMouseClicked(event -> {
-				System.out.print("Clicked! ");
-				if(selected_label != r_lb) 
-				{
-					cnt = 0;
-					if(selected_label !=null) {
-						selected_label.setStyle("-fx-border-color: transparent;");
-						selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
-						
-					}
-										
-					for (int j = 0; j < recipes.size(); j++)
-					{
-						if(r_lb.getText().equals(recipes.get(j).getTitle()))
-						{
-							selected_recipe = recipes.get(j);
-							System.out.print("Selected Recipe is now " + selected_recipe.getTitle() + " ");
-						}
-					}
-					setSelected_label(r_lb);
-					selected_label.setStyle("-fx-border-color: black;");
-					selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
-				}
-				cnt += 1;
-				System.out.println(cnt);
-				if(cnt == 3) {
-					selected_recipe.switchFavorite();
-					selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
-					try {
-						Recipe.saveFav(recipes);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					cnt = 0;
-					System.out.println(selected_recipe.getTitle() + " Favorite " + String.valueOf(selected_recipe.isFavorite()) + "\nCount set back to 0");
-				}				
-				
-				
+				mouseClick(r_lb);				
 			});
 			//System.out.println("Adding new label");
 			recipe_box.getChildren().add(r_lb);
+			recipes.get(i).setLabel(r_lb);
 		}
 
+	}
+
+	private void mouseClick(Label r_lb) {
+		System.out.print("Clicked! ");
+		if(selected_label != r_lb) 
+		{
+			cnt = 0;
+			if(selected_label !=null) {
+				selected_label.setStyle("-fx-border-color: transparent;");
+				selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
+				
+			}
+								
+			for (int j = 0; j < recipes.size(); j++)
+			{
+				if(r_lb.getText().equals(recipes.get(j).getTitle()))
+				{
+					selected_recipe = recipes.get(j);
+					System.out.print("Selected Recipe is now " + selected_recipe.getTitle() + " ");
+				}
+			}
+			setSelected_label(r_lb);
+			selected_label.setStyle("-fx-border-color: black;");
+			selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
+		}
+		cnt += 1;
+		System.out.println(cnt);
+		if(cnt == 3) {
+			selected_recipe.switchFavorite();
+			selected_label.setTextFill(selected_recipe.isFavorite() ? Color.GREEN : Color.BLACK);
+			try {
+				Recipe.saveFav(recipes);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			cnt = 0;
+			System.out.println(selected_recipe.getTitle() + " Favorite " + String.valueOf(selected_recipe.isFavorite()) + "\nCount set back to 0");
+		}
+		
 	}
 
 	private void setSelected_label(Label lb) {
@@ -245,6 +250,14 @@ public class MainController implements Initializable
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void pickForMe(ActionEvent event) {
+		Random random = new Random(); 
+		int num = random.nextInt(recipes.size());
+		System.out.println(num);
+		mouseClick(recipes.get(num).getLabel());
+		
 	}
 
 	public ArrayList<Recipe> getRecipes() {

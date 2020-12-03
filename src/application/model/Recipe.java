@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javafx.scene.control.Label;
+
 public class Recipe
 {
 	private String title, category, serving_size, prep_time, cook_time;
 	private boolean favorite;
+	private Label label;
 	private ArrayList<Ingredient> ingredients;
 	private ArrayList<Nutrition> nutritions;
 	private Nutrition nutrition_info;
@@ -201,5 +204,13 @@ public class Recipe
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public void setLabel(Label label) {
+		this.label = label;
 	}
 }
