@@ -48,6 +48,7 @@ public class MainController implements Initializable
 
 	private Recipe selected_recipe;
 	private static ArrayList<Recipe> recipes;
+	private Label selected_label;
 
 	public MainController()
 	{
@@ -92,8 +93,22 @@ public class MainController implements Initializable
 		{
 			Label r_lb = new Label();
 			r_lb.setText(recipes.get(i).getTitle());
+			r_lb.setOnMouseEntered( e -> {
+				r_lb.setScaleX(1.1);
+				r_lb.setScaleY(1.1);
+			});
+			r_lb.setOnMouseExited( e -> {
+				r_lb.setScaleX(1);
+				r_lb.setScaleY(1);
+			});
 			r_lb.setOnMouseClicked(event -> {
 				System.out.println("Clicked!");
+				if(selected_label != null && selected_label != r_lb) 
+				{
+					selected_label.setStyle("-fx-border-color: transparent;");
+				}
+				setSelected_label(r_lb);
+				r_lb.setStyle("-fx-border-color: black;");
 
 				//IF USER CLICKS LABEL 3 Times then add to favorite??? Could be a good idea
 
@@ -110,6 +125,11 @@ public class MainController implements Initializable
 			recipe_box.getChildren().add(r_lb);
 		}
 
+	}
+
+	private void setSelected_label(Label lb) {
+		this.selected_label = lb;
+		
 	}
 
 	public void handle_ingredients_scene(Event evt)
