@@ -1,6 +1,6 @@
 Description: 
 This program allows the user to select a recipe that contains the ingredients list and nutritonal aspect of that recipe. 
-The user will be able to favorite a recipe, create a new recipe, and get a randomized recipe for the user by clicking on the selected button.
+The user will be able to favorite, create, and retrieve a randomized recipe for the user by clicking on the selected button on the main menu.
 Table of Contents:
 Main Menu Window:
 Favorites Button:
