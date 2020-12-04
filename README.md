@@ -10,9 +10,13 @@ The user will be able to favorite, create, and retrieve a randomized recipe for 
 Table of Contents:
 -----------------------------------------------
 --Main Menu Window
+
 --Favorites Button
+
 --Create new Recipe Button
+
 --Ingredients Info Button
+
 --Nutrition Info Button
 
 Installation:
