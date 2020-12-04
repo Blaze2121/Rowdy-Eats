@@ -31,9 +31,13 @@ The user will be able to favorite, create, and retrieve a randomized recipe for 
 ##Contributing
 -----------------------------------------------
 --Brandon Bell
+
 --Jose Pague
+
 --Daisy Garza
+
 --Christopher Hendrix
+
 --Derek Gaura
 
 
