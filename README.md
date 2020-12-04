@@ -1,9 +1,13 @@
-#Description: 
+Rowdy-Eats
+-----------------------------------------------
+Version 1.0.0
+
+Description: 
 -----------------------------------------------
 Rowdy-Eats is a program that allows the user to select a recipe that contains the ingredients list and nutritonal aspect of that recipe. 
 The user will be able to favorite, create, and retrieve a randomized recipe for the user by clicking on the selected button on the main menu. Eclipse was mainly used for creating this project alongside of GitHub.
 
-##Table of Contents:
+Table of Contents:
 -----------------------------------------------
 --Main Menu Window
 --Favorites Button
@@ -11,12 +15,12 @@ The user will be able to favorite, create, and retrieve a randomized recipe for 
 --Ingredients Info Button
 --Nutrition Info Button
 
-##Installation:
+Installation:
 -----------------------------------------------
 1. Clone the repository
 2. Run the repository on Eclipse.
 
-##Usage:
+Usage:
 -----------------------------------------------
 --Main Menu Window: This contains all of the major buttons used to handle the recipes.
 
@@ -28,7 +32,7 @@ The user will be able to favorite, create, and retrieve a randomized recipe for 
 
 --Nutrition Info Button: The user will click on the selected recipe first in the main menu window, then the user will clikc on the 'Nutrition Info' Button that will display the nutrition of the desired recipe.
 
-##Contributing
+Contributing
 -----------------------------------------------
 --Brandon Bell
 
