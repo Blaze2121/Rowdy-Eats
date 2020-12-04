@@ -14,8 +14,6 @@
       </Label>
       <Button fx:id="pickForMe" layoutX="37.0" layoutY="707.0" mnemonicParsing="false" onAction="#pickForMe" prefHeight="58.0" prefWidth="215.0" text="Pick a recipe for me!" />
       <Button fx:id="newRecipeButton" layoutX="539.0" layoutY="707.0" mnemonicParsing="false" onAction="#pressNewRecipe" prefHeight="58.0" prefWidth="215.0" text="New Recipe++" />
-      <Button layoutX="79.0" layoutY="110.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Courses" />
-      <Button layoutX="319.0" layoutY="110.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Categories" />
       <Button fx:id="favoriteButton" layoutX="558.0" layoutY="110.0" mnemonicParsing="false" onAction="#pressFavorite" prefHeight="44.0" prefWidth="106.0" text="Favorites" />
       <FlowPane layoutX="144.0" layoutY="212.0" prefHeight="426.0" prefWidth="467.0">
          <children>
@@ -24,5 +22,10 @@
       </FlowPane>
       <Button fx:id="ing_btn" layoutX="280.0" layoutY="707.0" mnemonicParsing="false" onAction="#handle_ingredients_scene" prefHeight="58.0" prefWidth="106.0" text="Ingredients" />
       <Button fx:id="nut_btn" layoutX="400.0" layoutY="707.0" mnemonicParsing="false" onAction="#handle_nutrition_scene" prefHeight="58.0" prefWidth="106.0" text="Nutrition Info" />
+      <Label layoutX="145.0" layoutY="154.0" prefHeight="58.0" prefWidth="176.0" text="Recipe List:">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
